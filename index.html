@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keyboards U Need to Try</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; color: #f5f6fa;
+      font-family: Inter, system-ui, sans-serif;
+      background: radial-gradient(ellipse at 15% 10%, #312565 0, transparent 38%),
+                  radial-gradient(ellipse at 90% 85%, #075b70 0, transparent 35%), #0a0b12;
+      position: relative; isolation: isolate;
+    }
+    /* Taustavesileima pysyy sisällön takana eikä estä klikkauksia. */
+    body::before {
+      content: "LUZX"; position: fixed; z-index: -1; pointer-events: none;
+      left: 50%; top: 48%; transform: translate(-50%, -50%);
+      font-size: clamp(140px, 31vw, 440px); line-height: 1; font-weight: 950;
+      letter-spacing: .12em; color: #fff; opacity: .035;
+      -webkit-text-stroke: 1px #c4b5fd; white-space: nowrap;
+    }
+    header { padding: 24px 8%; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #ffffff14; }
+    .logo { font-weight:800; letter-spacing:2px; } .logo span { color:#a78bfa; }
+    .top-link { color:#e9ddff; text-decoration:none; border:1px solid #ffffff24; border-radius:999px; padding:10px 18px; font-size:14px; font-weight:700; }
+    .top-link:hover { background:#7c3aed; border-color:#a78bfa; }
+    .quick-nav { position:fixed; z-index:20; left:50%; bottom:16px; transform:translateX(-50%); display:flex; gap:8px; padding:9px; border:1px solid #8b5cf666; border-radius:999px; background:linear-gradient(120deg,#171525f5,#102029f2); box-shadow:0 12px 35px #0009,0 0 24px #7c3aed22; backdrop-filter:blur(14px); }
+    .quick-nav a { color:#eee; text-decoration:none; border:1px solid #ffffff12; background:#ffffff08; border-radius:999px; padding:10px 16px; font-size:13px; font-weight:700; white-space:nowrap; transition:.2s; }
+    .quick-nav a:hover, .quick-nav a:focus-visible { background:linear-gradient(120deg,#7c3aed,#087f9e); border-color:#a78bfa; outline:none; }
+    .hero { text-align:center; padding:70px 20px 35px; }
+    .eyebrow { color:#a78bfa; text-transform:uppercase; letter-spacing:3px; font-size:12px; font-weight:700; }
+    h1 { font-size:clamp(38px,7vw,70px); line-height:1; margin:18px 0; letter-spacing:-3px; }
+    .hero p { color:#a7a9b8; font-size:17px; }
+    .controls { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin:32px 0; }
+    .controls button { padding:10px 17px; }
+    button { color:#ddd; background:#ffffff0c; border:1px solid #ffffff1c; border-radius:999px; padding:12px 22px; font-size:14px; cursor:pointer; transition:.2s; }
+    button:hover, button.active { color:white; background:#7c3aed; border-color:#a78bfa; transform:translateY(-2px); }
+    .grid { width:min(1200px,92%); margin:0 auto 80px; display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px; scroll-margin-top:20px; }
+    .card { padding:16px; border-radius:22px; background:linear-gradient(145deg,#171823ed,#11121ae8); border:1px solid #ffffff18; box-shadow:0 20px 60px #0005; transition:.25s; }
+    .card:hover { transform:translateY(-7px); border-color:#a78bfa88; }
+    .keyboard { height:190px; display:grid; place-content:center; gap:8px; border-radius:16px; background:radial-gradient(circle at 50% 45%,#603bb566,#11121a 70%); overflow:hidden; }
+    .pc-art { height:190px; display:flex; justify-content:center; align-items:center; gap:20px; border-radius:16px; background:radial-gradient(circle at 50% 45%,#603bb566,#11121a 70%); }
+    .pc-monitor { width:120px; height:82px; border:5px solid #35384a; border-radius:8px; background:linear-gradient(135deg,#572db3,#11abc2); box-shadow:0 0 25px #8056ff66; position:relative; }
+    .pc-monitor::after { content:""; position:absolute; width:42px; height:8px; background:#35384a; left:34px; bottom:-16px; border-radius:0 0 4px 4px; }
+    .pc-case { width:54px; height:112px; border:2px solid #51556a; border-radius:10px; background:linear-gradient(150deg,#262938,#11121a); box-shadow:inset 0 0 20px #8b5cf633,0 0 20px #8b5cf622; position:relative; }
+    .pc-case::before { content:""; position:absolute; width:27px; height:27px; left:11px; top:28px; border:3px solid #a78bfa; border-radius:50%; box-shadow:0 0 14px #8b5cf6; }
+    .mouse-art { height:190px; display:grid; place-items:center; border-radius:16px; background:radial-gradient(circle at 50% 45%,#603bb566,#11121a 70%); }
+    .mouse-shape { position:relative; width:82px; height:112px; border:3px solid #8589a4; border-radius:48% 48% 42% 42%; background:linear-gradient(145deg,#37394d,#171824); box-shadow:0 0 26px #8b5cf655; }
+    .mouse-shape::before { content:""; position:absolute; width:2px; height:35px; left:37px; top:0; background:#8589a4; }
+    .mouse-shape::after { content:""; position:absolute; width:10px; height:18px; left:33px; top:17px; border-radius:8px; background:#a78bfa; box-shadow:0 0 12px #a78bfa; }
+    .monitor-art { height:190px; display:grid; place-items:center; border-radius:16px; background:radial-gradient(circle at 50% 45%,#603bb566,#11121a 70%); }
+    .monitor-shape { width:210px; max-width:75%; height:118px; border:5px solid #414458; border-radius:9px; background:linear-gradient(135deg,#162b69,#8c3ec5 48%,#08a9c7); box-shadow:0 0 24px #8056ff55; position:relative; }
+    .monitor-shape::after { content:""; position:absolute; width:55px; height:26px; left:calc(50% - 27px); bottom:-31px; border-bottom:5px solid #414458; border-left:5px solid #414458; border-right:5px solid #414458; }
+    .laptop-art { height:190px; display:grid; place-items:center; border-radius:16px; background:radial-gradient(circle at 50% 45%,#603bb566,#11121a 70%); }
+    .laptop-shape { width:190px; max-width:72%; height:120px; position:relative; }
+    .laptop-shape::before { content:""; position:absolute; top:0; left:13px; right:13px; height:102px; border:5px solid #45495d; border-radius:9px 9px 5px 5px; background:linear-gradient(140deg,#162b69,#8c3ec5 48%,#08a9c7); box-shadow:0 0 22px #8056ff55; }
+    .laptop-shape::after { content:""; position:absolute; bottom:8px; left:0; width:100%; height:12px; border-radius:3px 3px 10px 10px; background:linear-gradient(90deg,#4b4f63,#a78bfa,#4b4f63); }
+    .keys { display:flex; gap:6px; justify-content:center; } .key { width:27px; height:25px; border-radius:5px; background:#252735; border:1px solid #ffffff20; box-shadow:0 3px 0 #111; }
+    .key.rgb { background:linear-gradient(135deg,#8b5cf6,#06b6d4); box-shadow:0 0 12px #8b5cf666; }
+    .tag { display:inline-block; margin-top:17px; color:#c4b5fd; font-size:11px; text-transform:uppercase; letter-spacing:1.5px; }
+    h2 { margin:7px 0; font-size:20px; } .desc { color:#a7a9b8; font-size:14px; min-height:40px; }
+    .bottom { display:flex; justify-content:space-between; align-items:center; margin-top:16px; }
+    .price { font-size:20px; font-weight:800; } .choose { display:inline-block; color:#eee; text-decoration:none; background:#ffffff12; padding:9px 15px; border-radius:999px; font-size:14px; transition:.2s; }
+    .choose:hover { background:#7c3aed; transform:translateY(-2px); }
+    footer { text-align:center; color:#777b8b; padding:0 20px 100px; font-size:13px; }
+    @media (max-width:600px) { header { padding:20px 5%; } .hero { padding-top:55px; } .quick-nav { bottom:10px; width:calc(100% - 18px); justify-content:flex-start; gap:2px; padding:6px; overflow-x:auto; } .quick-nav a { flex:0 0 auto; padding:10px 8px; font-size:12px; } }
+  </style>
+</head>
+<body>
+  <header><div class="logo">KEYBOARDS <span>U NEED TO TRY</span></div></header>
+  <section class="hero">
+    <div class="eyebrow">Pelaa omalla tyylilläsi</div>
+    <h1>Valitse näppäimistösi.</h1>
+    <p>Huippumalleja pelaamiseen, kirjoittamiseen ja jokaiseen budjettiin.</p>
+    <div class="controls" id="filters"></div>
+  </section>
+  <main class="grid" id="keyboards" aria-label="Näppäimistöt"></main>
+  <section class="hero" id="pcs">
+    <div class="eyebrow">Valmiit pelikoneet</div>
+    <h1>Pre-Built PCs</h1>
+    <p>Valitse käyttöösi sopiva valmis tietokone.</p>
+    <div class="controls" id="pc-filters"></div>
+  </section>
+  <main class="grid" id="pc-products" aria-label="Valmiit tietokoneet"></main>
+  <section class="hero" id="mice">
+    <div class="eyebrow">Löydä sopiva tuntuma</div>
+    <h1>Mouse</h1>
+    <p>Pelihiiriä FPS- ja MMO-peleihin sekä mukavia hiiriä työpöydälle.</p>
+    <div class="controls" id="mouse-filters"></div>
+  </section>
+  <main class="grid" id="mouse-products" aria-label="Mouse"></main>
+  <section class="hero" id="monitors">
+    <div class="eyebrow">Näe jokainen yksityiskohta</div>
+    <h1>Screens</h1>
+    <p>Valitse näyttö pelaamiseen, nopeaan FPS-käyttöön, töihin tai pienemmällä budjetilla.</p>
+    <div class="controls" id="monitor-filters"></div>
+  </section>
+  <main class="grid" id="monitor-products" aria-label="Screens"></main>
+  <section class="hero" id="laptops">
+    <div class="eyebrow">Valitse omaan käyttöön sopiva</div>
+    <h1>Laptops</h1>
+    <p>Kannettavia pelaamiseen, työskentelyyn ja eri budjeteille.</p>
+    <div class="controls" id="laptop-filters"></div>
+  </section>
+  <main class="grid" id="laptop-products" aria-label="Laptops"></main>
+  <nav class="quick-nav" aria-label="Osioiden pikavalikko">
+    <a href="#keyboards">Keyboards</a>
+    <a href="#pcs">PC</a>
+    <a href="#mice">Mouse</a>
+    <a href="#monitors">Screens</a>
+    <a href="#laptops">Laptops</a>
+  </nav>
+  <footer>Valikoima kokoaa eri testeissä ja käyttötarkoituksissa esiin nousseita malleja. Saatavuus ja hinnat vaihtelevat.<br>
+    Lähteet: <a href="https://www.rtings.com/keyboard/reviews/best/by-usage/gaming" target="_blank" rel="noopener">RTINGS: pelinäppäimistöt</a> ·
+    <a href="https://www.rtings.com/keyboard/reviews/best/mechanical" target="_blank" rel="noopener">RTINGS: mekaaniset näppäimistöt</a> ·
+    <a href="https://www.pcgamer.com/best-gaming-keyboard/" target="_blank" rel="noopener">PC Gamer</a><br>
+    Hiirisuositukset: <a href="https://www.pcgamer.com/the-best-gaming-mouse/" target="_blank" rel="noopener">PC Gamer: pelihiiret</a> ·
+    <a href="https://www.rtings.com/mouse/reviews/best/fps" target="_blank" rel="noopener">RTINGS: FPS-hiiret</a> ·
+    <a href="https://www.rtings.com/mouse/reviews/best/work" target="_blank" rel="noopener">RTINGS: työhiiret</a> ·
+    <a href="https://www.tomshardware.com/best-picks/best-wireless-mouse" target="_blank" rel="noopener">Tom's Hardware: langattomat hiiret</a><br>
+    Näyttösuositukset: <a href="https://www.pcgamer.com/best-gaming-monitor/" target="_blank" rel="noopener">PC Gamer: pelinäytöt</a> ·
+    <a href="https://www.rtings.com/monitor/reviews/best/oled" target="_blank" rel="noopener">RTINGS: OLED-näytöt</a> ·
+    <a href="https://www.rtings.com/monitor/reviews/best/by-usage/business-office" target="_blank" rel="noopener">RTINGS: työkäyttö</a><br>
+    Kannettavien suositukset: <a href="https://www.pcgamer.com/best-gaming-laptop/" target="_blank" rel="noopener">PC Gamer: pelikannettavat</a> ·
+    <a href="https://www.tomshardware.com/laptops/gaming-laptops/best-gaming-laptops" target="_blank" rel="noopener">Tom's Hardware: pelikannettavat</a> ·
+    <a href="https://www.rtings.com/laptop/reviews/best/by-usage/business" target="_blank" rel="noopener">RTINGS: työkannettavat</a>
+  </footer>
+  <script>
+    const keyboards = [
+      { brand:"Wooting", name:"80HE", type:"Paras kilpapelaamiseen · Hall effect", desc:"Erittäin nopea magneettikytkinmalli, jossa säädettävä painallusherkkyys ja Rapid Trigger.", rgb:true },
+      { brand:"Wooting", name:"60HE v2", type:"Kompakti pelaamiseen · 60 %", desc:"Pieni koko jättää hiirelle tilaa; magneettikytkimet ja tarkat säätömahdollisuudet.", rgb:true },
+      { brand:"Keychron", name:"Q6 Ultra 8K", type:"Paras mekaaninen · Täysikokoinen", desc:"Tukeva alumiinirunko, langaton yhteys ja pehmeä, viimeistelty kirjoitustuntuma.", rgb:true },
+      { brand:"Keychron", name:"Q1 HE", type:"Magneettinen · 75 %", desc:"Laadukas kompakti alumiininäppäimistö magneettikytkimillä ja säädettävällä aktivoinnilla.", rgb:true },
+      { brand:"Logitech", name:"G PRO X TKL LIGHTSPEED", type:"Kilpapelaamiseen · Langaton", desc:"Kompakti langaton pelinäppäimistö tutulla Logitech G -tuntumalla.", rgb:true },
+      { brand:"Logitech", name:"G515 LIGHTSPEED TKL", type:"Matalaprofiilinen · Langaton", desc:"Ohut ja hiljaisempi vaihtoehto pelaamiseen ja päivittäiseen käyttöön.", rgb:true },
+      { brand:"SteelSeries", name:"Apex Pro TKL Gen 3", type:"Magneettinen · Säädettävä aktivointi", desc:"OmniPoint-kytkimet, Rapid Trigger ja OLED-näyttö samassa pelinäppäimistössä.", rgb:true },
+      { brand:"SteelSeries", name:"Apex Pro Mini Wireless", type:"Kompakti · Langaton", desc:"Pieni langaton pelinäppäimistö säädettävillä OmniPoint-kytkimillä.", rgb:true },
+      { brand:"Razer", name:"Huntsman V3 Pro TKL", type:"Kilpapelaamiseen · Analoginen", desc:"Nopea analoginen näppäimistö säädettävällä aktivoinnilla ja Rapid Triggerillä.", rgb:true },
+      { brand:"Razer", name:"BlackWidow V4 Pro 75%", type:"Premium · Muokattava", desc:"Hot-swap-kytkimet, kompakti asettelu ja monipuoliset ohjaimet.", rgb:true },
+      { brand:"ASUS ROG", name:"Azoth Extreme", type:"Premium · Langaton", desc:"Harrastajatason langaton pelinäppäimistö laadukkaalla rakenteella ja näytöllä.", rgb:true },
+      { brand:"NuPhy", name:"Mode Series", type:"Monipuolinen kirjoittamiseen", desc:"Viimeistelty mekaaninen näppäimistö useissa kokoluokissa ja profiileissa.", rgb:true },
+      { brand:"Ducky", name:"OK-M", type:"Budjettivalinta · Useita kokoja", desc:"Edullisempi mekaaninen vaihtoehto, josta löytyy eri kokoja ja kytkinvalintoja.", rgb:false },
+      { brand:"Keychron", name:"C3 Pro", type:"Budjetti · Mekaaninen", desc:"Edullinen mekaaninen näppäimistö, jossa on mukautettava asettelu ja taustavalaistus.", rgb:true, budget:true },
+      { brand:"Logitech", name:"G213 Prodigy", type:"Budjetti · Pelaamiseen", desc:"Helppokäyttöinen ja roiskeita kestävä pelinäppäimistö edulliseen hintaluokkaan.", rgb:true, budget:true },
+      { brand:"SteelSeries", name:"Apex 3 TKL", type:"Budjetti · Hiljainen ja kompakti", desc:"Hiljaiset näppäimet ja kompakti koko tekevät tästä hyvän edullisen pelivaihtoehdon.", rgb:true, budget:true },
+      { brand:"Logitech", name:"MX Keys S", type:"Työhön · Hiljainen ja langaton", desc:"Matalaprofiilinen ja hiljainen näppäimistö kirjoittamiseen ja toimistokäyttöön.", rgb:false }
+    ];
+    const container = document.querySelector("#keyboards");
+    const brands = ["Kaikki", ...new Set(keyboards.map(k => k.brand))];
+    document.querySelector("#filters").innerHTML = brands.map((brand, i) =>
+      `<button class="${i===0?"active":""}" data-brand="${brand}">${brand}</button>`
+    ).join("") + `<button data-brand="budjet good">budjet good</button>`;
+    function draw(brand="Kaikki") {
+      const items = keyboards.filter(k => brand === "Kaikki" || (brand === "budjet good" ? k.budget : k.brand === brand));
+      container.innerHTML = items.map(k => `
+        <article class="card">
+          <div class="keyboard" aria-hidden="true">${[0,1,2,3].map(row => `<div class="keys">${Array.from({length:row===3?7:10},(_,i)=>`<span class="key ${k.rgb&&(i+row)%3===0?"rgb":""}"></span>`).join("")}</div>`).join("")}</div>
+          <span class="tag">${k.brand} · ${k.type}</span><h2>${k.name}</h2><div class="desc">${k.desc}</div>
+          <div class="bottom"><span class="price">${k.type.split(" · ")[0]}</span><a class="choose" href="https://www.google.com/search?tbm=shop&amp;hl=fi&amp;gl=fi&amp;q=${encodeURIComponent(k.brand + " " + k.name)}" target="_blank" rel="noopener">Vertaile hintoja ↗</a></div>
+        </article>`).join("");
+    }
+    document.querySelectorAll(".controls button").forEach(button => button.addEventListener("click", () => {
+      document.querySelector(".controls .active")?.classList.remove("active");
+      button.classList.add("active"); draw(button.dataset.brand);
+    }));
+    draw();
+
+    const pcs = [
+      { brand:"iBUYPOWER", name:"RDY Element 9 Pro R07", type:"Budjetti · 1440p-pelaaminen", categories:["Budjetti","FPS gaming"], desc:"Hyvä hinta-tehosuhde valmiissa pelikoneessa; tarkista myyjältä saatavilla oleva kokoonpano." },
+      { brand:"Lenovo Legion", name:"Legion Tower 5", type:"Budjetti · Yleiskäyttöön", categories:["Budjetti","FPS gaming"], desc:"Edullisemman luokan valmis pelikone arkipelaamiseen. Tarkista näytönohjain ennen ostoa." },
+      { brand:"CyberPowerPC", name:"Ultra R5RX", type:"Budjetti · Pelaamiseen", categories:["Budjetti","FPS gaming"], desc:"Arvosteltu keskihintainen pelitietokone, jossa on 32 Gt muistia ja 2 Tt SSD-tallennustilaa." },
+      { brand:"Corsair Vengeance", name:"a7500", type:"Tehokas · Premium-pelaamiseen", categories:["Kalliit","FPS gaming"], desc:"Tehokas valmis pelikone vaativiin peleihin ja korkeisiin kuvataajuuksiin." },
+      { brand:"Alienware", name:"Area-51", type:"Tehokas · Premium-pelaamiseen", categories:["Kalliit","FPS gaming"], desc:"Alienwaren huippuluokan pelikone tehokasta pelaamista varten." },
+      { brand:"HP OMEN", name:"MAX 45L", type:"Tehokas · Huippuluokka", categories:["Kalliit","FPS gaming"], desc:"Erittäin tehokas ja kookas valmis pelikone vaativaan pelaamiseen." },
+      { brand:"Dell Pro Precision", name:"9 T2", type:"Työasema · Ammattikäyttöön", categories:["Working","Kalliit"], desc:"Testattu työasema raskaisiin ammattilaisohjelmiin ja vaativiin työkuormiin." },
+      { brand:"Dell Pro Max", name:"Tower T2", type:"Työasema · Hinta-teho", categories:["Working"], desc:"Testattu yhden näytönohjaimen työasema tehokkaaseen luovaan ja tekniseen työhön." },
+      { brand:"Lenovo ThinkStation", name:"P8", type:"Työasema · Laajennettava", categories:["Working","Kalliit"], desc:"Tehokas työasema ammattikäyttöön, jossa tarvitaan paljon prosessoritehoa ja laajennettavuutta." },
+      { brand:"HP Z2", name:"Tower G1i", type:"Työasema · CAD ja luova työ", categories:["Working"], desc:"Työasemakokoonpano ammattilaisohjelmille, kuten CAD- ja 3D-työhön." }
+    ];
+    const pcGrid = document.querySelector("#pc-products");
+    const pcCategories = ["Kaikki", "Kalliit", "Budjetti", "FPS gaming", "Working"];
+    const pcFilters = document.querySelector("#pc-filters");
+    pcFilters.innerHTML = pcCategories.map((category, i) =>
+      `<button class="${i===0?"active":""}" data-pc-category="${category}">${category}</button>`
+    ).join("");
+    function drawPcs(category="Kaikki") {
+      const visiblePcs = pcs.filter(pc => category === "Kaikki" || pc.categories.includes(category));
+      pcGrid.innerHTML = visiblePcs.map(pc => `
+        <article class="card">
+          <div class="pc-art" aria-hidden="true"><div class="pc-monitor"></div><div class="pc-case"></div></div>
+          <span class="tag">${pc.brand} · ${pc.type}</span><h2>${pc.name}</h2><div class="desc">${pc.desc}</div>
+          <div class="bottom"><span class="price">${pc.categories.join(" · ")}</span><a class="choose" href="https://www.google.com/search?tbm=shop&amp;hl=fi&amp;gl=fi&amp;q=${encodeURIComponent(pc.brand + " " + pc.name)}" target="_blank" rel="noopener">Vertaile hintoja ↗</a></div>
+        </article>`).join("");
+    }
+    pcFilters.querySelectorAll("button").forEach(button => button.addEventListener("click", () => {
+      pcFilters.querySelector(".active")?.classList.remove("active");
+      button.classList.add("active");
+      drawPcs(button.dataset.pcCategory);
+    }));
+    drawPcs();
+
+    const mice = [
+      { brand:"Razer", name:"Viper V4 Pro", type:"Paras yleispelihiiri · Langaton", desc:"Kevyt huippumalli nopeaan ja tarkkaan pelaamiseen.", category:"Pelaaminen" },
+      { brand:"Logitech G", name:"PRO X3 SUPERSTRIKE", type:"Kilpapelaamiseen · Langaton", desc:"Kilpapelaamiseen suunniteltu kevyt hiiri, jossa painotus on nopeassa klikkauksessa.", category:"Pelaaminen" },
+      { brand:"Keychron", name:"M3 Mini", type:"Budjetti · FPS-pelaamiseen", desc:"Kevyt ja tarkka langaton pelihiiri hyvään hinta-tehosuhteeseen.", category:"Budjetti" },
+      { brand:"MCHOSE", name:"L7 Pro", type:"Kevyt · FPS-pelaamiseen", desc:"Edullisempi langaton vaihtoehto nopeaan pelaamiseen ja pienemmälle kädelle.", category:"Budjetti" },
+      { brand:"Logitech G", name:"G305 LIGHTSPEED", type:"Budjetti · Langaton", desc:"Suosittu pienikokoinen langaton pelihiiri edullisempaan hintaluokkaan.", category:"Budjetti" },
+      { brand:"Razer", name:"Naga V3 Pro", type:"MMO-pelaamiseen · Vaihdettavat sivupaneelit", desc:"Monipuolinen pelihiiri, jonka sivupainikkeet sopivat monen komennon peleihin.", category:"Pelaaminen" },
+      { brand:"Logitech", name:"MX Master 4", type:"Työhön · Ergonominen", desc:"Työhiiri, jossa on sivurulla ja mukautettavia ohjaimia tuottavaan työskentelyyn.", category:"Työ" },
+      { brand:"Logitech", name:"Lift Vertical", type:"Työhön · Pystyhiiri", desc:"Pystyyn muotoiltu hiiri, joka tarjoaa vaihtoehtoisen ranneasennon pitkille työpäiville.", category:"Työ" },
+      { brand:"Logitech", name:"MX Ergo S", type:"Työhön · Trackball", desc:"Peukalolla ohjattava trackball, joka liikuttaa osoitinta ilman hiiren siirtelyä pöydällä.", category:"Työ" },
+      { brand:"Logitech", name:"ERGO M575S", type:"Työhön · Edullinen trackball", desc:"Helppokäyttöisempi langaton trackball työpöydälle ja pieniin tiloihin.", category:"Työ" },
+      { brand:"Kensington", name:"Expert Mouse Wireless Trackball", type:"Työhön · Sormiohjattava trackball", desc:"Iso keskellä oleva pallohiiri ja vieritysrengas erilaiseen työskentelytapaan.", category:"Työ" },
+      { brand:"Logitech", name:"M330 Silent Plus", type:"Työhön · Hiljainen", desc:"Hiljaiset painikkeet ja kompakti langaton rakenne toimistoon tai opiskeluun.", category:"Työ" },
+      { brand:"Logitech", name:"Pebble Mouse 2 M350s", type:"Työhön · Matkahiiri", desc:"Ohut ja kevyt hiiri helposti laukkuun tai mukaan liikkuvaan työpisteeseen.", category:"Työ" },
+      { brand:"Logitech", name:"Signature M650", type:"Työhön · Mukava perushiiri", desc:"Mukava langaton perushiiri hiljaisemmilla painikkeilla ja useissa kokovaihtoehdoissa.", category:"Työ" },
+      { brand:"Keychron", name:"M6 8K", type:"Työhön · Monipuolinen", desc:"Työskentelyyn sopiva hiiri lisäpainikkeilla ja vaakasuuntaisella vierityksellä.", category:"Työ" },
+      { brand:"Logitech G", name:"G502 X PLUS", type:"Pelaamiseen · Monipuolinen", desc:"Monipainikkeinen pelihiiri monenlaisiin peleihin ja mukautettaviin komentoihin.", category:"Pelaaminen" }
+    ];
+    const mouseGrid = document.querySelector("#mouse-products");
+    const mouseFilters = document.querySelector("#mouse-filters");
+    const mouseBrands = ["Kaikki", ...new Set(mice.map(mouse => mouse.brand))];
+    mouseFilters.innerHTML = mouseBrands.map((brand, i) =>
+      `<button class="${i===0?"active":""}" data-mouse-brand="${brand}">${brand}</button>`
+    ).join("") + ["Budjetti", "Pelaaminen", "Työ"].map(category =>
+      `<button data-mouse-category="${category}">${category}</button>`
+    ).join("");
+    function drawMice(filter="Kaikki", isCategory=false) {
+      const visibleMice = mice.filter(mouse => filter === "Kaikki" || (isCategory ? mouse.category === filter : mouse.brand === filter));
+      mouseGrid.innerHTML = visibleMice.map(mouse => `
+        <article class="card">
+          <div class="mouse-art" aria-hidden="true"><div class="mouse-shape"></div></div>
+          <span class="tag">${mouse.brand} · ${mouse.type}</span><h2>${mouse.name}</h2><div class="desc">${mouse.desc}</div>
+          <div class="bottom"><span class="price">${mouse.category}</span><a class="choose" href="https://www.google.com/search?tbm=shop&amp;hl=fi&amp;gl=fi&amp;q=${encodeURIComponent(mouse.brand + " " + mouse.name)}" target="_blank" rel="noopener">Vertaile hintoja ↗</a></div>
+        </article>`).join("");
+    }
+    mouseFilters.querySelectorAll("button").forEach(button => button.addEventListener("click", () => {
+      mouseFilters.querySelector(".active")?.classList.remove("active");
+      button.classList.add("active");
+      const category = button.dataset.mouseCategory;
+      drawMice(category || button.dataset.mouseBrand, Boolean(category));
+    }));
+    drawMice();
+
+    const monitors = [
+      { brand:"ASUS ROG", name:"Swift OLED PG32UCDM Gen3", type:"Huippu-OLED · 4K pelaamiseen", categories:["OLED","Pelaaminen","Kalliit"], desc:"Huippuluokan 4K QD-OLED-pelinäyttö nopeaan virkistykseen ja näyttävään HDR-kuvaan." },
+      { brand:"Dell Alienware", name:"AW2726DM", type:"Budjetti-OLED · 27 tuumaa", categories:["OLED","Budjetti","Pelaaminen"], desc:"Edullisempi tapa siirtyä OLED-pelinäyttöön; tarkista aluekohtainen saatavuus." },
+      { brand:"Samsung Odyssey", name:"OLED G6 G60SF", type:"FPS · Nopea OLED", categories:["FPS","OLED","Pelaaminen"], desc:"Nopea QD-OLED-näyttö kilpailulliseen pelaamiseen ja sulavaan liikkeeseen." },
+      { brand:"Lenovo Legion", name:"R25f-30", type:"Budjetti · 1080p pelaamiseen", categories:["Budjetti","FPS","Pelaaminen"], desc:"Edullinen korkean virkistystaajuuden Full HD -näyttö nopeaan pelaamiseen." },
+      { brand:"HyperX OMEN", name:"OLED 27q", type:"Keskitason OLED · QHD", categories:["OLED","Pelaaminen"], desc:"QHD OLED -vaihtoehto pelaamiseen, kun haluat terävän kuvan ja nopeat vasteet." },
+      { brand:"ASUS ProArt", name:"Display 6K PA32QCV", type:"Työhön · 6K", categories:["Työhön","Kalliit"], desc:"Tarkka 6K-työnäyttö suunnitteluun, kuvatyöhön ja laajaan työtilaan." },
+      { brand:"Dell UltraSharp", name:"U3225QE", type:"Työhön · 4K IPS Black", categories:["Työhön"], desc:"31,5 tuuman 4K-työnäyttö selkeällä tekstillä ja tuottavuusominaisuuksilla." },
+      { brand:"KTC", name:"M27T6S", type:"Budjetti · 1440p Mini-LED", categories:["Budjetti","Pelaaminen"], desc:"Budjettihintainen 1440p Mini-LED -pelinäyttö, jonka HDR-kuvaa on kehuttu testeissä." },
+      { brand:"ASUS ROG", name:"Swift PG27AQDP", type:"FPS · 480 Hz OLED", categories:["FPS","OLED","Pelaaminen","Kalliit"], desc:"Erittäin nopea QHD OLED -näyttö kilpailulliseen FPS-pelaamiseen." },
+      { brand:"Acer Nitro", name:"XV273U F5", type:"FPS · Erittäin korkea virkistystaajuus", categories:["FPS","Pelaaminen"], desc:"Nopea 1440p-pelinäyttö e-urheiluun ja korkeisiin kuvataajuuksiin." }
+    ];
+    const monitorGrid = document.querySelector("#monitor-products");
+    const monitorFilters = document.querySelector("#monitor-filters");
+    const monitorBrands = ["Kaikki", ...new Set(monitors.map(monitor => monitor.brand))];
+    const monitorCategories = ["FPS", "OLED", "Työhön", "Budjetti", "Kalliit", "Pelaaminen"];
+    monitorFilters.innerHTML = monitorBrands.map((brand, i) =>
+      `<button class="${i===0?"active":""}" data-monitor-brand="${brand}">${brand}</button>`
+    ).join("") + monitorCategories.map(category =>
+      `<button data-monitor-category="${category}">${category}</button>`
+    ).join("");
+    function drawMonitors(filter="Kaikki", isCategory=false) {
+      const visibleMonitors = monitors.filter(monitor => filter === "Kaikki" || (isCategory ? monitor.categories.includes(filter) : monitor.brand === filter));
+      monitorGrid.innerHTML = visibleMonitors.map(monitor => `
+        <article class="card">
+          <div class="monitor-art" aria-hidden="true"><div class="monitor-shape"></div></div>
+          <span class="tag">${monitor.brand} · ${monitor.type}</span><h2>${monitor.name}</h2><div class="desc">${monitor.desc}</div>
+          <div class="bottom"><span class="price">${monitor.categories[0]}</span><a class="choose" href="https://www.google.com/search?tbm=shop&amp;hl=fi&amp;gl=fi&amp;q=${encodeURIComponent(monitor.brand + " " + monitor.name)}" target="_blank" rel="noopener">Vertaile hintoja ↗</a></div>
+        </article>`).join("");
+    }
+    monitorFilters.querySelectorAll("button").forEach(button => button.addEventListener("click", () => {
+      monitorFilters.querySelector(".active")?.classList.remove("active");
+      button.classList.add("active");
+      const category = button.dataset.monitorCategory;
+      drawMonitors(category || button.dataset.monitorBrand, Boolean(category));
+    }));
+    drawMonitors();
+
+    const laptops = [
+      { brand:"Lenovo LOQ", name:"LOQ Gaming Laptop", type:"Gaming · Budjetti", categories:["Gaming","Budget"], desc:"PC Gamerin budjettivalinta pelaamiseen; kokoonpanot vaihtelevat, joten tarkista näytönohjain ja muisti." },
+      { brand:"MSI", name:"Katana 15 HX", type:"Gaming · Edullinen", categories:["Gaming","Budget"], desc:"Edullisemman luokan pelikannettava, jolla pääsee mukaan PC-pelaamiseen." },
+      { brand:"MSI", name:"Vector 16 HX", type:"Gaming · Keskihintainen", categories:["Gaming"], desc:"Tehokas keskihintainen pelikannettava pelaamiseen ja raskaaseen käyttöön." },
+      { brand:"Razer", name:"Blade 16", type:"Gaming · Premium", categories:["Gaming","Kalliit"], desc:"Ohut ja tehokas pelikannettava premium-luokassa." },
+      { brand:"Alienware", name:"16 Area-51", type:"Gaming · Huippuluokka", categories:["Gaming","Kalliit"], desc:"Tehokas isonäyttöinen pelikannettava vaativaan pelaamiseen." },
+      { brand:"HP OMEN", name:"Max 16", type:"Gaming · Tehokas", categories:["Gaming","Kalliit"], desc:"Tehokas pelikannettava nopealla näytöllä ja raskaiden pelien suorituskyvyllä." },
+      { brand:"ASUS ROG", name:"Zephyrus G14", type:"Gaming · Kevyt ja tehokas", categories:["Gaming","Kalliit"], desc:"Pienempi premium-pelikannettava, jossa yhdistyvät liikkuvuus ja tehokas pelaaminen." },
+      { brand:"Lenovo ThinkPad", name:"X9 15 Aura Edition", type:"Working · Premium", categories:["Working","Kalliit"], desc:"Kevyt yrityskannettava hyvällä näytöllä, pitkällä akunkestolla ja toimivalla liitettävyydellä." },
+      { brand:"HP OmniBook", name:"5 16", type:"Working · Keskihintainen", categories:["Working"], desc:"Monipuolinen 16-tuumainen työkannettava opiskeluun, toimistoon ja moniajoon." },
+      { brand:"Apple", name:"MacBook Neo", type:"Working · Budjetti", categories:["Working","Budget"], desc:"Edullisempi Mac kannettava tavalliseen työskentelyyn, opiskeluun ja verkkokäyttöön." },
+      { brand:"HP OmniBook", name:"3 14", type:"Working · Edullinen", categories:["Working","Budget"], desc:"Kannettava perustoimistoon ja opiskeluun, kun etsit edullista Windows-vaihtoehtoa." },
+      { brand:"Dell XPS", name:"13 (2026)", type:"Working · Kevyt premium", categories:["Working","Kalliit"], desc:"Pieni ja kevyt työkannettava liikkuvaan työskentelyyn." },
+      { brand:"Apple", name:"MacBook Pro 14 M5", type:"Working · Tehotyöhön", categories:["Working","Kalliit"], desc:"Tehokas kannettava videoeditointiin, ohjelmointiin ja muihin raskaisiin työtehtäviin." }
+    ];
+    const laptopGrid = document.querySelector("#laptop-products");
+    const laptopFilters = document.querySelector("#laptop-filters");
+    const laptopBrands = ["Kaikki", ...new Set(laptops.map(laptop => laptop.brand))];
+    const laptopCategories = ["Gaming", "Working", "Budget", "Kalliit"];
+    laptopFilters.innerHTML = laptopBrands.map((brand, i) =>
+      `<button class="${i===0?"active":""}" data-laptop-brand="${brand}">${brand}</button>`
+    ).join("") + laptopCategories.map(category =>
+      `<button data-laptop-category="${category}">${category}</button>`
+    ).join("");
+    function drawLaptops(filter="Kaikki", isCategory=false) {
+      const visibleLaptops = laptops.filter(laptop => filter === "Kaikki" || (isCategory ? laptop.categories.includes(filter) : laptop.brand === filter));
+      laptopGrid.innerHTML = visibleLaptops.map(laptop => `
+        <article class="card">
+          <div class="laptop-art" aria-hidden="true"><div class="laptop-shape"></div></div>
+          <span class="tag">${laptop.brand} · ${laptop.type}</span><h2>${laptop.name}</h2><div class="desc">${laptop.desc}</div>
+          <div class="bottom"><span class="price">${laptop.categories.join(" · ")}</span><a class="choose" href="https://www.google.com/search?tbm=shop&amp;hl=fi&amp;gl=fi&amp;q=${encodeURIComponent(laptop.brand + " " + laptop.name)}" target="_blank" rel="noopener">Vertaile hintoja ↗</a></div>
+        </article>`).join("");
+    }
+    laptopFilters.querySelectorAll("button").forEach(button => button.addEventListener("click", () => {
+      laptopFilters.querySelector(".active")?.classList.remove("active");
+      button.classList.add("active");
+      const category = button.dataset.laptopCategory;
+      drawLaptops(category || button.dataset.laptopBrand, Boolean(category));
+    }));
+    drawLaptops();
+  </script>
+</body>
+</html>
