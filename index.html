@@ -49,6 +49,11 @@
     .mouse-shape { position:relative; width:82px; height:112px; border:3px solid #8589a4; border-radius:48% 48% 42% 42%; background:linear-gradient(145deg,#37394d,#171824); box-shadow:0 0 26px #8b5cf655; }
     .mouse-shape::before { content:""; position:absolute; width:2px; height:35px; left:37px; top:0; background:#8589a4; }
     .mouse-shape::after { content:""; position:absolute; width:10px; height:18px; left:33px; top:17px; border-radius:8px; background:#a78bfa; box-shadow:0 0 12px #a78bfa; }
+    .pad-art { height:190px; display:grid; place-items:center; border-radius:16px; background:radial-gradient(circle at 50% 45%,#603bb566,#11121a 70%); overflow:hidden; }
+    .pad-shape { width:76%; height:118px; border:2px solid #8b5cf699; border-radius:18px; transform:perspective(500px) rotateX(13deg) rotateZ(-5deg); background:linear-gradient(135deg,#29243e,#161824 55%,#242b43); box-shadow:0 12px 22px #0009,0 0 28px #8b5cf633; position:relative; }
+    .pad-shape::after { content:"LUZX · PLAY YOUR WAY"; position:absolute; right:14px; bottom:12px; color:#b9a6ff99; font-size:9px; letter-spacing:2px; }
+    .pad-shape.deskmat { width:86%; height:105px; background:linear-gradient(135deg,#162d42,#20243b 55%,#18333a); border-color:#22d3ee66; }
+    .pad-shape.hard { background:linear-gradient(135deg,#394252,#171a24 55%,#34364c); border-color:#fff5; border-radius:12px; }
     .monitor-art { height:190px; display:grid; place-items:center; border-radius:16px; background:radial-gradient(circle at 50% 45%,#603bb566,#11121a 70%); }
     .monitor-shape { width:210px; max-width:75%; height:118px; border:5px solid #414458; border-radius:9px; background:linear-gradient(135deg,#162b69,#8c3ec5 48%,#08a9c7); box-shadow:0 0 24px #8056ff55; position:relative; }
     .monitor-shape::after { content:""; position:absolute; width:55px; height:26px; left:calc(50% - 27px); bottom:-31px; border-bottom:5px solid #414458; border-left:5px solid #414458; border-right:5px solid #414458; }
@@ -90,6 +95,13 @@
     <div class="controls" id="mouse-filters"></div>
   </section>
   <main class="grid" id="mouse-products" aria-label="Mouse"></main>
+  <section class="hero" id="mousepads">
+    <div class="eyebrow">Pehmeä alusta, tarkka tähtäys</div>
+    <h1>Mousepads</h1>
+    <p>Hiirimattoja nopeaan FPS-pelaamiseen, mukavaan työskentelyyn ja koko pöydän kattavaan setupiin.</p>
+    <div class="controls" id="mousepad-filters"></div>
+  </section>
+  <main class="grid" id="mousepad-products" aria-label="Hiirimatot"></main>
   <section class="hero" id="monitors">
     <div class="eyebrow">Näe jokainen yksityiskohta</div>
     <h1>Screens</h1>
@@ -108,6 +120,7 @@
     <a href="#keyboards">Keyboards</a>
     <a href="#pcs">PC</a>
     <a href="#mice">Mouse</a>
+    <a href="#mousepads">Mousepads</a>
     <a href="#monitors">Screens</a>
     <a href="#laptops">Laptops</a>
   </nav>
@@ -119,6 +132,8 @@
     <a href="https://www.rtings.com/mouse/reviews/best/fps" target="_blank" rel="noopener">RTINGS: FPS-hiiret</a> ·
     <a href="https://www.rtings.com/mouse/reviews/best/work" target="_blank" rel="noopener">RTINGS: työhiiret</a> ·
     <a href="https://www.tomshardware.com/best-picks/best-wireless-mouse" target="_blank" rel="noopener">Tom's Hardware: langattomat hiiret</a><br>
+    Hiirimattosuositukset: <a href="https://www.pcgamesn.com/best-gaming-mouse-pad" target="_blank" rel="noopener">PCGamesN: pelihiirimatot</a> ·
+    <a href="https://www.tomshardware.com/peripherals/mice/steelseries-qck-performance-series-mousepad-hands-on" target="_blank" rel="noopener">Tom's Hardware: SteelSeries QcK</a><br>
     Näyttösuositukset: <a href="https://www.pcgamer.com/best-gaming-monitor/" target="_blank" rel="noopener">PC Gamer: pelinäytöt</a> ·
     <a href="https://www.rtings.com/monitor/reviews/best/oled" target="_blank" rel="noopener">RTINGS: OLED-näytöt</a> ·
     <a href="https://www.rtings.com/monitor/reviews/best/by-usage/business-office" target="_blank" rel="noopener">RTINGS: työkäyttö</a><br>
@@ -242,6 +257,45 @@
       drawMice(category || button.dataset.mouseBrand, Boolean(category));
     }));
     drawMice();
+
+    const mousepads = [
+      { brand:"SteelSeries", name:"QcK Heavy", type:"Budjetti · Paksu kangasmatto", categories:["Budjetti","FPS"], desc:"Suosittu paksu kangasmatto, jonka pitävä kumipohja ja useat koot sopivat monenlaiseen pelaamiseen.", style:"" },
+      { brand:"SteelSeries", name:"QcK Performance Speed", type:"Nopea liuku · FPS", categories:["FPS","Pelaaminen"], desc:"Nopeaan ja tasaiseen hiiren liikkeeseen tehty pintavaihtoehto kilpailulliseen pelaamiseen.", style:"" },
+      { brand:"Logitech G", name:"G640", type:"Tasainen kangaspinta · FPS", categories:["FPS","Pelaaminen"], desc:"Suuri kangasmatto matalan herkkyyden pelaajille ja laajoihin hiiren liikkeisiin.", style:"" },
+      { brand:"Logitech G", name:"G840 XL", type:"XXL · Koko pöydälle", categories:["Deskmat","Pelaaminen"], desc:"Erittäin leveä pelialusta näppäimistölle ja hiirelle; auttaa pitämään setupin yhtenäisenä.", style:"deskmat" },
+      { brand:"Razer", name:"Gigantus V2 XXL", type:"XXL · Budjetti", categories:["Deskmat","Budjetti"], desc:"Pehmeä, suuri mikrokudottu alusta hiirelle ja näppäimistölle edulliseen hintaluokkaan.", style:"deskmat" },
+      { brand:"Corsair", name:"MM300 PRO Extended", type:"Laajennettu · Roiskeita hylkivä", categories:["Deskmat","Pelaaminen"], desc:"Laaja, ommelluilla reunoilla viimeistelty pelialusta koko työpisteelle.", style:"deskmat" },
+      { brand:"HyperX", name:"Pulsefire Mat XL", type:"XL · Kangasmatto", categories:["Deskmat","Pelaaminen"], desc:"Tasapainoinen XL-kokoinen kangasmatto hiirelle ja näppäimistölle.", style:"deskmat" },
+      { brand:"ZOWIE", name:"G-SR III", type:"Hallittu liike · FPS", categories:["FPS","Pelaaminen"], desc:"Pintatuntumaltaan hallittu kangasmatto, joka auttaa pysäyttämään hiiren täsmällisesti.", style:"" },
+      { brand:"ARTISAN", name:"FX Zero Soft", type:"Premium · Tasapainoinen", categories:["Premium","FPS"], desc:"Laadukas harrastajatason kangasmatto, jossa yhdistyy hallinta ja sulava liike.", style:"" },
+      { brand:"Logitech G", name:"G440", type:"Kova pinta · Nopea", categories:["Kova pinta","Pelaaminen"], desc:"Kova, vähäkitkainen pinta nopeisiin liikkeisiin ja helposti pyyhittäväksi alustaksi.", style:"hard" },
+      { brand:"Glorious", name:"3XL Extended", type:"XXXL · Budjetti", categories:["Deskmat","Budjetti"], desc:"Erittäin suuri pöytämatto, joka jättää tilaa näppäimistölle, hiirelle ja muille tarvikkeille.", style:"deskmat" }
+    ];
+    const mousepadGrid = document.querySelector("#mousepad-products");
+    const mousepadFilters = document.querySelector("#mousepad-filters");
+    const mousepadBrands = ["Kaikki", ...new Set(mousepads.map(pad => pad.brand))];
+    const mousepadCategories = ["Budjetti", "FPS", "Deskmat", "Kova pinta", "Premium", "Pelaaminen"];
+    mousepadFilters.innerHTML = mousepadBrands.map((brand, i) =>
+      `<button class="${i===0?"active":""}" data-mousepad-brand="${brand}">${brand}</button>`
+    ).join("") + mousepadCategories.map(category =>
+      `<button data-mousepad-category="${category}">${category}</button>`
+    ).join("");
+    function drawMousepads(filter="Kaikki", isCategory=false) {
+      const visiblePads = mousepads.filter(pad => filter === "Kaikki" || (isCategory ? pad.categories.includes(filter) : pad.brand === filter));
+      mousepadGrid.innerHTML = visiblePads.map(pad => `
+        <article class="card">
+          <div class="pad-art" aria-hidden="true"><div class="pad-shape ${pad.style}"></div></div>
+          <span class="tag">${pad.brand} · ${pad.type}</span><h2>${pad.name}</h2><div class="desc">${pad.desc}</div>
+          <div class="bottom"><span class="price">${pad.categories.join(" · ")}</span><a class="choose" href="https://www.google.com/search?tbm=shop&amp;hl=fi&amp;gl=fi&amp;q=${encodeURIComponent(pad.brand + " " + pad.name)}" target="_blank" rel="noopener">Vertaile hintoja ↗</a></div>
+        </article>`).join("");
+    }
+    mousepadFilters.querySelectorAll("button").forEach(button => button.addEventListener("click", () => {
+      mousepadFilters.querySelector(".active")?.classList.remove("active");
+      button.classList.add("active");
+      const category = button.dataset.mousepadCategory;
+      drawMousepads(category || button.dataset.mousepadBrand, Boolean(category));
+    }));
+    drawMousepads();
 
     const monitors = [
       { brand:"ASUS ROG", name:"Swift OLED PG32UCDM Gen3", type:"Huippu-OLED · 4K pelaamiseen", categories:["OLED","Pelaaminen","Kalliit"], desc:"Huippuluokan 4K QD-OLED-pelinäyttö nopeaan virkistykseen ja näyttävään HDR-kuvaan." },
